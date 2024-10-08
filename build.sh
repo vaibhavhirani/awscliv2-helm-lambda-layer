@@ -21,7 +21,7 @@ ${DOCKER} build -t ${TAG} .
 
 echo ">> Extracting layer.zip from the build container..."
 CONTAINER=$(${DOCKER} run -d ${TAG} -- -c 'sleep 60')
-${DOCKER} cp ${CONTAINER}:/layer.zip ../lib/layer.zip
+${DOCKER} cp ${CONTAINER}:/layer.zip $(pwd)/layer.zip
 
 echo ">> Stopping container..."
 ${DOCKER} rm -f ${CONTAINER}
